@@ -3,6 +3,7 @@ package com.wsb.db2wordmysql.controller;
 import com.lowagie.text.DocumentException;
 import com.wsb.db2wordmysql.service.DataTransferService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,8 +23,8 @@ public class DataTransferController {
         return "hello";
     }
 
-    @RequestMapping("/getDb")
-    public String getDb(String dbName) {
+    @RequestMapping("/getDb/{dbName}")
+    public String getDb(@PathVariable String dbName) {
         List<Map<String, Object>> list = this.dataTransferService.getAllDataName(dbName);
         try {
             this.dataTransferService.toWord(list);
