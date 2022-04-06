@@ -1,0 +1,2 @@
+rootProject.name = 'db2word'
+include 'db2word-mysql'

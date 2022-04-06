@@ -1,0 +1,43 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.6' apply false
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE' apply false
+    id 'java'
+}
+allprojects {
+    group = 'com.wsb'
+    version = '0.0.1-SNAPSHOT'
+    apply plugin: 'idea'
+}
+subprojects {
+    apply plugin: 'java-library'
+    ext {
+        springBootVersion = "2.6.5"
+        springDependencyManagement = "1.0.11.RELEASE"
+        juintVersion = "5.7.0"
+    }
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/public/' }
+        maven {
+            allowInsecureProtocol = true
+            url "http://nexus.cicconline.com/repository/maven-public/"
+        }
+        mavenLocal()
+    }
+}
+
+
+
+
+//dependencies {
+//    implementation 'org.springframework.boot:spring-boot-starter-web'
+//    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
+//    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+//    runtimeOnly 'mysql:mysql-connector-java'
+//    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//}
+//
+//tasks.named('test') {
+//    useJUnitPlatform()
+//}
