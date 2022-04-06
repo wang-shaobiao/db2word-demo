@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: Grpc-Server
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://10.50.3.16:3306/cif?characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: root
+server:
+  port: 8081
+
+

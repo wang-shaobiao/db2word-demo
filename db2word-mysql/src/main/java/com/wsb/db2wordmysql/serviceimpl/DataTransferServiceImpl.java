@@ -6,17 +6,18 @@ import com.lowagie.text.rtf.RtfWriter2;
 import com.wsb.db2wordmysql.dao.DataTransferMapper;
 import com.wsb.db2wordmysql.service.DataTransferService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.List;
 import java.util.Map;
-
+@Service
 public class DataTransferServiceImpl implements DataTransferService {
 
     @Autowired
-    DataTransferMapper dataTransferMapper;
+    private DataTransferMapper dataTransferMapper;
     @Override
     public List<Map<String, Object>> getDataDetail(String tableName) {
         return dataTransferMapper.getDataDetail(tableName);
