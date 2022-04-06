@@ -32,7 +32,10 @@ E:data/dbDetail.doc
 ```sql
 SELECT table_name, table_comment FROM information_schema.TABLES WHERE table_schema='zaservice';
 ```
-![8405a1fd9d92ddd81cb12e4f7538d28e.png](en-resource://database/2423:1)
+![image](https://user-images.githubusercontent.com/24486746/162043004-4ab60ae1-e6ff-4d4c-98fe-3ea2436b07dd.png)
+
+
+
 
 - 查询每个表的字段信息
 
@@ -59,12 +62,12 @@ WHERE
         table_name = 'sys_log'
 
 ```
-![04227d3a61bea07f097c052039ebfbb6.png](en-resource://database/2424:1)@h=500
+![image](https://user-images.githubusercontent.com/24486746/162042900-818e6eea-0f4a-4b3b-a962-b7d8f0e9bd94.png)
 
 - 简单展示表字段信息
   `SHOW FULL FIELDS FROM live_gateway.t_authorize`
   效果和上面第二点类似
-  ![e2404dabe8ec61029750f436e29904bf.png](en-resource://database/2425:1)
+![image](https://user-images.githubusercontent.com/24486746/162043083-f044158b-4295-45ce-a3a9-64e81412d3c2.png)
 
 ## 2.实现--db2word-postgresql
 实现类似mysql
