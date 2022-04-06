@@ -1,5 +1,8 @@
 package com.wsb.db2wordmysql.service;
 
+import com.lowagie.text.DocumentException;
+
+import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Map;
 
@@ -22,5 +25,5 @@ public interface DataTransferService {
      * 描述：数据写出到指定的word文件中
      * @param listAll
      */
-    void toWord(List<Map<String, Object>> listAll);
+    void toWord(List<Map<String, Object>> listAll) throws FileNotFoundException, DocumentException;
 }
