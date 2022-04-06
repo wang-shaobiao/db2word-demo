@@ -24,6 +24,6 @@ public interface DataTransferMapper {
      * @param dbName
      * @return
      */
-    @Select("select table_name ,table_comment from information_schema.tables where table_schema = #{}dbName")
+    @Select("select table_name ,table_comment from information_schema.tables where table_schema = #{dbName}")
     List<Map<String, Object>> getAllDataSourceName(@Param("dbName")String dbName);
 }
