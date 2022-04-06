@@ -1,11 +1,12 @@
 package com.wsb.db2wordmysql.service;
 
 import com.lowagie.text.DocumentException;
+import org.springframework.stereotype.Service;
 
 import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Map;
-
+@Service
 public interface DataTransferService {
     /**
      * 描述：更具表名获取表的详细信息
