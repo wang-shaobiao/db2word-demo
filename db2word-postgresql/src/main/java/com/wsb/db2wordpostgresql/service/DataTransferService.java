@@ -1,7 +1,6 @@
-package com.wsb.db2wordmysql.service;
+package com.wsb.db2wordpostgresql.service;
 
 import com.lowagie.text.DocumentException;
-import org.springframework.stereotype.Service;
 
 import java.io.FileNotFoundException;
 import java.util.List;
