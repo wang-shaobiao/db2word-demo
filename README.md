@@ -87,6 +87,8 @@ and relowner=(select oid from pg_authid where rolname='cif' )
 order by table_name;
 ```
 可以增加条件 `relowner =?` 判断所有者 对应表为 `pg_authid`
+**更新：**<br>
+发现relowner不太行，还是会有多表情况，需要用schema来区分，`pg_class.relnamespace` 对应表`pg_namespace.oid` <br>
 
 - 查询每个表的字段信息
 ```sql
@@ -107,7 +109,8 @@ and relowner=(select oid from pg_authid where rolname='cif' )
 ));
 ```
 最好加上`releowner`，要不有可能会有表名相同的情况
-
+**更新：**<br>
+发现relowner不太行，还是会有多表情况，需要用schema来区分，`pg_class.relnamespace` 对应表`pg_namespace.oid` <br>
 
 
 ## 3.主要实现逻辑
