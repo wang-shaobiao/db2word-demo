@@ -83,7 +83,7 @@ E:data/dbDetail.doc
 select relname as table_name,(select description from pg_description where objoid=oid and objsubid=0) 
 as table_comment 
 from pg_class where relkind ='r' and relname NOT LIKE 'pg%' AND relname NOT LIKE 'sql_%' 
-and relowner=(select oid from pg_authid where rolname='cif' )
+and relnamespace=(select oid from pg_namespace where nspname='cif' )
 order by table_name;
 ```
 可以增加条件 `relowner =?` 判断所有者 对应表为 `pg_authid`<br>
@@ -105,7 +105,7 @@ else '' end) as 索引,
 col_description(a.attrelid,a.attnum) as 说明
 from pg_attribute a
 where attstattarget=-1 and attrelid = (select oid from pg_class where relname ='ok' 
-and relowner=(select oid from pg_authid where rolname='cif' )
+and relnamespace=(select oid from pg_namespace where nspname='cif' )
 ));
 ```
 最好加上`releowner`，要不有可能会有表名相同的情况<br>
