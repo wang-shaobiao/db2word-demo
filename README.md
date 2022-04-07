@@ -76,12 +76,19 @@ http://localhost/ams/getDb/dbName
 E:data/dbDetail.doc
 
 ### 2.2 参考SQL
+[pgsql系统表参考](https://www.csdn.net/tags/MtTaMg2sMTg1MTQ2LWJsb2cO0O0O.html)
 - 查询所有表名
 
 ```sql
 select relname as table_name,(select description from pg_description where objoid=oid and objsubid=0) 
-as table_comment from pg_class where relkind ='r' and relname NOT LIKE 'pg%' AND relname NOT LIKE 'sql_%'order by table_name;
+as table_comment 
+from pg_class where relkind ='r' and relname NOT LIKE 'pg%' AND relname NOT LIKE 'sql_%' 
+and relnamespace=(select oid from pg_namespace where nspname='cif' )
+order by table_name;
 ```
+可以增加条件 `relowner =?` 判断所有者 对应表为 `pg_authid`<br>
+**更新：**<br>
+发现relowner不太行，还是会有多表情况，需要用schema来区分，`pg_class.relnamespace` 对应表`pg_namespace.oid` <br>
 
 - 查询每个表的字段信息
 ```sql
@@ -97,8 +104,13 @@ else '' end) as 索引,
 (case when a.attnotnull=true then 'NO' else 'YES' end) as 允许为空,
 col_description(a.attrelid,a.attnum) as 说明
 from pg_attribute a
-where attstattarget=-1 and attrelid = (select oid from pg_class where relname ='ok');
+where attstattarget=-1 and attrelid = (select oid from pg_class where relname ='ok' 
+and relnamespace=(select oid from pg_namespace where nspname='cif' )
+));
 ```
+最好加上`releowner`，要不有可能会有表名相同的情况<br>
+**更新：**<br>
+发现relowner不太行，还是会有多表情况，需要用schema来区分，`pg_class.relnamespace` 对应表`pg_namespace.oid` <br>
 
 
 ## 3.主要实现逻辑
@@ -129,6 +141,6 @@ where attstattarget=-1 and attrelid = (select oid from pg_class where relname ='
 ## Reference
 
 
-[https://github.com/BeliveYourSelf/lv617DbTest](https://github.com/BeliveYourSelf/lv617DbTest)
-
-[https://www.cnblogs.com/nami/p/4112339.html](https://www.cnblogs.com/nami/p/4112339.html)
+https://github.com/BeliveYourSelf/lv617DbTest<br>
+https://www.cnblogs.com/nami/p/4112339.html<br>
+https://www.csdn.net/tags/MtTaMg2sMTg1MTQ2LWJsb2cO0O0O.html
