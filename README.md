@@ -1,8 +1,8 @@
 # 数据库设计文档生成工具
 
-[套娃借鉴](https://github.com/heartsuit/db2word/tree/mysql) <br>
-[mysql+postgres合集(老版iText应用demo)](https://github.com/wang-shaobiao/db2word-demo/tree/first)<br>
-[iText7应用生成pdf](https://github.com/wang-shaobiao/db2word-demo/tree/second)<br>
+- [套娃借鉴](https://github.com/heartsuit/db2word/tree/mysql) <br>
+- [mysql+postgres合集(老版iText应用demo)](https://github.com/wang-shaobiao/db2word-demo/tree/first)<br>
+- [iText7应用生成pdf](https://github.com/wang-shaobiao/db2word-demo/tree/second)<br>
 ## 结果展示：
 ![image](https://user-images.githubusercontent.com/24486746/162140211-9ae69891-c7db-419b-bb50-5c4403ecd2e9.png)
 
@@ -27,19 +27,13 @@ itext-rtf<com.lowagie><br>
 
 ## 1.实现--db2word-mysql
 
-### 1.1 生成
-http://localhost/ams/getDb/dbName
-E:data/dbDetail.doc
-
-### 1.2 参考SQL
+### 1.1 参考SQL
 - 查询所有表名
 
 ```sql
 SELECT table_name, table_comment FROM information_schema.TABLES WHERE table_schema='zaservice';
 ```
 ![image](https://user-images.githubusercontent.com/24486746/162043004-4ab60ae1-e6ff-4d4c-98fe-3ea2436b07dd.png)
-
-
 
 
 - 查询每个表的字段信息
@@ -75,12 +69,8 @@ WHERE
 ![image](https://user-images.githubusercontent.com/24486746/162043083-f044158b-4295-45ce-a3a9-64e81412d3c2.png)
 
 ## 2.实现--db2word-postgresql
-实现类似mysql
-### 2.1 生成
-http://localhost/ams/getDb/dbName
-E:data/dbDetail.doc
 
-### 2.2 参考SQL
+### 2.1 参考SQL
 [pgsql系统表参考](https://www.csdn.net/tags/MtTaMg2sMTg1MTQ2LWJsb2cO0O0O.html)
 - 查询所有表名
 
@@ -116,31 +106,6 @@ and relnamespace=(select oid from pg_namespace where nspname='cif' )
 最好加上`releowner`，要不有可能会有表名相同的情况<br>
 **更新：**<br>
 发现relowner不太行，还是会有多表情况，需要用schema来区分，`pg_class.relnamespace` 对应表`pg_namespace.oid` <br>
-
-
-## 3.主要实现逻辑
-- 1. 创建com.lowagie.text.Document类对象
-     `Document document = new Document(PageSize.A4)`
-     也可以多加参数，来标明页边距
-
-- 2. 创建书写器和document对象和输出流关联
-     `RtfWriter2.getInstance(document, new FileOutputStream("E:/data/dbDetail.doc"));`
-     pdf可以使用
-     `PdfWriter pdfWriter = PdfWriter.getInstance(document, bao);`<com.lowagie.text.PDF.PDFWriter>
-     还可以加入权限控制
-
-- 3. 打开文档 document.open();
-- 4. 创建段落Paragraph，创建字体Font
-- 5. 文档中添加内容
-    - document.add(table)
-        - table.addCell(cell)
-            - cell.setHeader(true);表头开始
-            - ce.ll.setBackgroundColor(new Color(176,196,222)); 背景颜色
-            - cell.endHeaders();表头结束
-    - document.add(jpeg)
-    - ...
-- 6 .关闭文档 document.close();
-
 
 
 ## Reference
