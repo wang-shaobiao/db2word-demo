@@ -76,6 +76,7 @@ http://localhost/ams/getDb/dbName
 E:data/dbDetail.doc
 
 ### 2.2 参考SQL
+[pgsql系统表参考](https://www.csdn.net/tags/MtTaMg2sMTg1MTQ2LWJsb2cO0O0O.html)
 - 查询所有表名
 
 ```sql
@@ -102,7 +103,7 @@ col_description(a.attrelid,a.attnum) as 说明
 from pg_attribute a
 where attstattarget=-1 and attrelid = (select oid from pg_class where relname ='ok' -- and relowner='16404'));
 ```
-最好加上releowner，要不有可能会有表名相同的情况
+最好加上`releowner`，要不有可能会有表名相同的情况
 
 
 
