@@ -3,7 +3,7 @@
 [套娃借鉴](https://github.com/heartsuit/db2word/tree/mysql) <br>
 [mysql+postgres合集](https://github.com/wang-shaobiao/db2word-demo.git)
 ## 结果展示：
-![Uploading image.png…]()
+![image](https://user-images.githubusercontent.com/24486746/162139811-48754fe4-b588-4eaa-94c2-f26170070132.png)
 
 ## 依赖介绍：
 
