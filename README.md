@@ -106,3 +106,5 @@ and relnamespace=(select oid from pg_namespace where nspname='cif' )
 
 
 ## 3.主要实现逻辑
+- 依赖：全家桶
+  com.itextpdf:itext7-core:7.2.1
