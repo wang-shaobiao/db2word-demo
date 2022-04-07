@@ -4,7 +4,7 @@
 - [iText7应用生成pdf](https://github.com/wang-shaobiao/db2word-demo/tree/second)<br>
 
 ## 结果展示：
-![image](https://user-images.githubusercontent.com/24486746/162140211-9ae69891-c7db-419b-bb50-5c4403ecd2e9.png)
+
 
 
 ## 依赖介绍：
