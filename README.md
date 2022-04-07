@@ -80,8 +80,11 @@ E:data/dbDetail.doc
 
 ```sql
 select relname as table_name,(select description from pg_description where objoid=oid and objsubid=0) 
-as table_comment from pg_class where relkind ='r' and relname NOT LIKE 'pg%' AND relname NOT LIKE 'sql_%'order by table_name;
+as table_comment 
+from pg_class where relkind ='r' and relname NOT LIKE 'pg%' AND relname NOT LIKE 'sql_%' -- and relowner='16404'
+order by table_name;
 ```
+可以增加条件 `relowner =?` 判断所有者 对应表为 `pg_authid`
 
 - 查询每个表的字段信息
 ```sql
@@ -97,8 +100,10 @@ else '' end) as 索引,
 (case when a.attnotnull=true then 'NO' else 'YES' end) as 允许为空,
 col_description(a.attrelid,a.attnum) as 说明
 from pg_attribute a
-where attstattarget=-1 and attrelid = (select oid from pg_class where relname ='ok');
+where attstattarget=-1 and attrelid = (select oid from pg_class where relname ='ok' -- and relowner='16404'));
 ```
+最好加上releowner，要不有可能会有表名相同的情况
+
 
 
 ## 3.主要实现逻辑
@@ -129,6 +134,6 @@ where attstattarget=-1 and attrelid = (select oid from pg_class where relname ='
 ## Reference
 
 
-[https://github.com/BeliveYourSelf/lv617DbTest](https://github.com/BeliveYourSelf/lv617DbTest)
-
-[https://www.cnblogs.com/nami/p/4112339.html](https://www.cnblogs.com/nami/p/4112339.html)
+https://github.com/BeliveYourSelf/lv617DbTest<br>
+https://www.cnblogs.com/nami/p/4112339.html<br>
+https://www.csdn.net/tags/MtTaMg2sMTg1MTQ2LWJsb2cO0O0O.html
