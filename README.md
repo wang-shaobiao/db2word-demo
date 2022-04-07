@@ -106,24 +106,3 @@ and relnamespace=(select oid from pg_namespace where nspname='cif' )
 
 
 ## 3.主要实现逻辑
-- 1. 创建com.lowagie.text.Document类对象
-     `Document document = new Document(PageSize.A4)`
-     也可以多加参数，来标明页边距
-
-- 2. 创建书写器和document对象和输出流关联
-     `RtfWriter2.getInstance(document, new FileOutputStream("E:/data/dbDetail.doc"));`
-     pdf可以使用
-     `PdfWriter pdfWriter = PdfWriter.getInstance(document, bao);`<com.lowagie.text.PDF.PDFWriter>
-     还可以加入权限控制
-
-- 3. 打开文档 document.open();
-- 4. 创建段落Paragraph，创建字体Font
-- 5. 文档中添加内容
-    - document.add(table)
-        - table.addCell(cell)
-            - cell.setHeader(true);表头开始
-            - ce.ll.setBackgroundColor(new Color(176,196,222)); 背景颜色
-            - cell.endHeaders();表头结束
-    - document.add(jpeg)
-    - ...
-- 6 .关闭文档 document.close();
