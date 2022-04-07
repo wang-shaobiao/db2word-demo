@@ -1,7 +1,8 @@
 # 数据库设计文档生成工具
 
-[套娃借鉴](https://github.com/heartsuit/db2word/tree/mysql) <br>
-[mysql+postgres合集](https://github.com/wang-shaobiao/db2word-demo.git)
+- [mysql+postgres合集(老版iText应用demo)](https://github.com/wang-shaobiao/db2word-demo/tree/first)<br>
+- [iText7应用生成pdf](https://github.com/wang-shaobiao/db2word-demo/tree/second)<br>
+
 ## 结果展示：
 ![image](https://user-images.githubusercontent.com/24486746/162140211-9ae69891-c7db-419b-bb50-5c4403ecd2e9.png)
 
@@ -18,7 +19,7 @@ itext<com.lowagie><br>
 itext-asian<com.itextpdf><br>
 itext-rtf<com.lowagie><br>
 新项目变更：<br>
-待完善<br>
+[iText7应用生成pdf](https://github.com/wang-shaobiao/db2word-demo/tree/second)<br>
 
 ## gradle项目搭建-多moudle
 - db2word-mysql
@@ -26,20 +27,12 @@ itext-rtf<com.lowagie><br>
 
 ## 1.实现--db2word-mysql
 
-### 1.1 生成
-http://localhost/ams/getDb/dbName
-E:data/dbDetail.doc
-
-### 1.2 参考SQL
 - 查询所有表名
 
 ```sql
 SELECT table_name, table_comment FROM information_schema.TABLES WHERE table_schema='zaservice';
 ```
 ![image](https://user-images.githubusercontent.com/24486746/162043004-4ab60ae1-e6ff-4d4c-98fe-3ea2436b07dd.png)
-
-
-
 
 - 查询每个表的字段信息
 
@@ -74,12 +67,7 @@ WHERE
 ![image](https://user-images.githubusercontent.com/24486746/162043083-f044158b-4295-45ce-a3a9-64e81412d3c2.png)
 
 ## 2.实现--db2word-postgresql
-实现类似mysql
-### 2.1 生成
-http://localhost/ams/getDb/dbName
-E:data/dbDetail.doc
 
-### 2.2 参考SQL
 [pgsql系统表参考](https://www.csdn.net/tags/MtTaMg2sMTg1MTQ2LWJsb2cO0O0O.html)
 - 查询所有表名
 
@@ -139,12 +127,3 @@ and relnamespace=(select oid from pg_namespace where nspname='cif' )
     - document.add(jpeg)
     - ...
 - 6 .关闭文档 document.close();
-
-
-
-## Reference
-
-
-https://github.com/BeliveYourSelf/lv617DbTest<br>
-https://www.cnblogs.com/nami/p/4112339.html<br>
-https://www.csdn.net/tags/MtTaMg2sMTg1MTQ2LWJsb2cO0O0O.html
