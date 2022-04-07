@@ -1,7 +1,8 @@
 # 数据库设计文档生成工具
 
 [套娃借鉴](https://github.com/heartsuit/db2word/tree/mysql) <br>
-[mysql+postgres合集](https://github.com/wang-shaobiao/db2word-demo.git)
+[mysql+postgres合集(老版iText应用demo)](https://github.com/wang-shaobiao/db2word-demo/tree/first)<br>
+[iText7应用生成pdf](https://github.com/wang-shaobiao/db2word-demo/tree/second)<br>
 ## 结果展示：
 ![image](https://user-images.githubusercontent.com/24486746/162140211-9ae69891-c7db-419b-bb50-5c4403ecd2e9.png)
 
@@ -18,7 +19,7 @@ itext<com.lowagie><br>
 itext-asian<com.itextpdf><br>
 itext-rtf<com.lowagie><br>
 新项目变更：<br>
-待完善<br>
+[iText7应用生成pdf](https://github.com/wang-shaobiao/db2word-demo/tree/second)
 
 ## gradle项目搭建-多moudle
 - db2word-mysql
