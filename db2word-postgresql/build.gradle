@@ -5,9 +5,7 @@ plugins {
 dependencies {
 	implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
 	implementation "org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2"
-	implementation "com.lowagie:itext:2.1.7"
-	implementation "com.lowagie:itext-rtf:2.1.7"
-	implementation "com.itextpdf:itext-asian:5.2.0"
+	implementation "com.itextpdf:itext7-core:7.2.1"
 	developmentOnly "org.springframework.boot:spring-boot-devtools:${springBootVersion}"
 	runtimeOnly 'org.postgresql:postgresql:42.3.3'
 	testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
