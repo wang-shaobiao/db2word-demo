@@ -1,6 +1,6 @@
 package com.wsb.db2wordpostgresql.controller;
 
-import com.lowagie.text.DocumentException;
+
 import com.wsb.db2wordpostgresql.service.DataTransferService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,7 +31,7 @@ public class DataTransferController {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             return "error ,File not found";
-        } catch (DocumentException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return "error ,Document not found";
         }
