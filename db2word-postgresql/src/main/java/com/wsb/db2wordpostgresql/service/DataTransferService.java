@@ -1,6 +1,6 @@
 package com.wsb.db2wordpostgresql.service;
 
-import com.lowagie.text.DocumentException;
+
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -26,5 +26,5 @@ public interface DataTransferService {
      * 描述：数据写出到指定的word文件中
      * @param listAll
      */
-    void toWord(List<Map<String, Object>> listAll) throws IOException, DocumentException;
+    void toWord(List<Map<String, Object>> listAll) throws IOException;
 }
