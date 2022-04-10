@@ -2,8 +2,10 @@
 
 - [mysql+postgres合集(老版iText应用demo)](https://github.com/wang-shaobiao/db2word-demo/tree/first)<br>
 - [iText7应用生成pdf](https://github.com/wang-shaobiao/db2word-demo/tree/second)<br>
+iText7具体应用见分支**second-postgresql**
 
 ## 结果展示：
+![image](https://user-images.githubusercontent.com/24486746/162610993-ce498b11-bf22-4e65-a606-896ee86c000a.png)
 
 
 
@@ -14,11 +16,22 @@ iText是著名的开放源码的站点sourceforge一个项目，是用于生成P
 
 [iText官网](https://itextpdf.com/en)
 
-老项目使用：<br>
+* 老项目使用：<br>
 itext<com.lowagie><br>
 itext-asian<com.itextpdf><br>
 itext-rtf<com.lowagie><br>
-新项目变更：<br>
+* iText7：<br>
+
+  * 方式1：单独依赖
+com.itextpdf:kernel:7.0.4
+com.itextpdf:io
+com.itextpdf:layout
+com.itextpdf:forms
+com.itextpdf:pdfa
+com.itextpdf:pdftest
+  * 方式2：全家桶
+com.itextpdf:itext7-core:7.0.4
+
 [iText7应用生成pdf](https://github.com/wang-shaobiao/db2word-demo/tree/second)<br>
 
 ## gradle项目搭建-多moudle
@@ -105,6 +118,12 @@ and relnamespace=(select oid from pg_namespace where nspname='cif' )
 发现relowner不太行，还是会有多表情况，需要用schema来区分，`pg_class.relnamespace` 对应表`pg_namespace.oid` <br>
 
 
-## 3.主要实现逻辑
-- 依赖：全家桶
-  com.itextpdf:itext7-core:7.2.1
+## 3.主要实现
+表格 页码 页眉 水印 分页  插入图片...
+
+# References
+[官方API](https://api.itextpdf.com/iText7/java/7.2.0/)
+https://www.cnblogs.com/fonks/p/15090635.html
+https://ld246.com/article/1506562801846
+https://www.bbsmax.com/A/rV57P1NqdP/
+https://blog.csdn.net/weiruiwei/article/details/89084807
