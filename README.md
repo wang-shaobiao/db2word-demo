@@ -1,4 +1,4 @@
-# 数据库设计文档生成工具
+# 数据库设计文档生成工具-iText7
 
 - [mysql+postgres合集(老版iText应用demo)](https://github.com/wang-shaobiao/db2word-demo/tree/first)<br>
 - [iText7应用生成pdf](https://github.com/wang-shaobiao/db2word-demo/tree/second)<br>
@@ -29,7 +29,7 @@ com.itextpdf:layout <br>
 com.itextpdf:forms <br>
 com.itextpdf:pdfa <br>
 com.itextpdf:pdftest <br>
-  * 方式2：全家桶
+  * 方式2：全家桶<br>
 com.itextpdf:itext7-core:7.0.4 <br>
 
 [iText7应用生成pdf](https://github.com/wang-shaobiao/db2word-demo/tree/second)<br>
