@@ -60,7 +60,7 @@ class IText7HellowordApplicationTests {
             //PdfFont f = PdfFontFactory.createFont("STSongStd-Light", "UniGB-UCS2-H", PdfFontFactory.EmbeddingStrategy.PREFER_EMBEDDED,false);
             PdfFont f = PdfFontFactory.createFont("STSongStd-Light", "UniGB-UCS2-H");
             //使用项目内上传的楷体
-            PdfFont f2 = PdfFontFactory.createFont("src/main/resources/simkai.ttf", PdfEncodings.IDENTITY_H);
+            PdfFont f2 = PdfFontFactory.createFont(new ClassPathResource("simkai.ttf").getPath(), PdfEncodings.IDENTITY_H);
             Paragraph ph = new Paragraph("helloworld...你好？？?");
             Text tx1 = new Text("abcdefg,1.表名：").setFont(f).setFontSize(20);
             Text tx2 = new Text("txtdm ,测试表名").setFont(f2).setFontSize(18).setBold();
@@ -68,7 +68,7 @@ class IText7HellowordApplicationTests {
             document.add(ph.setFont(f2));
             document.add(ph2);
             //简单添加图片，稍微再细一点的可以见水印图片的处理方式,路径或者字节流均可
-            Image im = new Image(ImageDataFactory.create("src/main/resources/test.jpg"),36,100);
+            Image im = new Image(ImageDataFactory.create(new ClassPathResource("test.jpg").getURL()),36,100);
             im.scaleAbsolute(480, 550);
             document.add(im);
             //分页
