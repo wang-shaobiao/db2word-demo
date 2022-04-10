@@ -1,11 +1,12 @@
 # 数据库设计文档生成工具
 
-- [套娃借鉴](https://github.com/heartsuit/db2word/tree/mysql) <br>
-- [mysql+postgres合集(老版iText应用demo)](https://github.com/wang-shaobiao/db2word-demo/tree/first)<br>
-- [iText7应用生成pdf](https://github.com/wang-shaobiao/db2word-demo/tree/second)<br>
+- [老版iText应用生成doc-demo)](https://github.com/wang-shaobiao/db2word-demo/tree/first)<br>
+- [iText7应用生成pdf-demo](https://github.com/wang-shaobiao/db2word-demo/tree/second)<br>
 ## 结果展示：
+### 老板iText实现doc
 ![image](https://user-images.githubusercontent.com/24486746/162140211-9ae69891-c7db-419b-bb50-5c4403ecd2e9.png)
-
+### iText7实现pdf
+![image](https://user-images.githubusercontent.com/24486746/162610993-ce498b11-bf22-4e65-a606-896ee86c000a.png)
 
 ## 依赖介绍：
 
@@ -18,8 +19,22 @@ iText是著名的开放源码的站点sourceforge一个项目，是用于生成P
 itext<com.lowagie><br>
 itext-asian<com.itextpdf><br>
 itext-rtf<com.lowagie><br>
-新项目变更：<br>
-[iText7应用生成pdf](https://github.com/wang-shaobiao/db2word-demo/tree/second)
+* iText7：<br>
+
+  * 方式1：单独依赖
+  
+  com.itextpdf:kernel:7.0.4 <br>
+  com.itextpdf:io <br>
+  com.itextpdf:layout <br>
+  com.itextpdf:forms <br>
+  com.itextpdf:pdfa <br>
+  com.itextpdf:pdftest <br>
+  
+  * 方式2：全家桶<br>
+  
+  com.itextpdf:itext7-core:7.0.4 <br>
+
+[iText7应用生成pdf](https://github.com/wang-shaobiao/db2word-demo/tree/second)<br>
 
 ## gradle项目搭建-多moudle
 - db2word-mysql
@@ -109,8 +124,12 @@ and relnamespace=(select oid from pg_namespace where nspname='cif' )
 
 
 ## Reference
-
-
+[官方API](https://api.itextpdf.com/iText7/java/7.2.0/) <br>
+[套娃借鉴](https://github.com/heartsuit/db2word/tree/mysql) <br>
+https://www.cnblogs.com/fonks/p/15090635.html <br>
+https://ld246.com/article/1506562801846 <br>
+https://www.bbsmax.com/A/rV57P1NqdP/ <br>
+https://blog.csdn.net/weiruiwei/article/details/89084807 <br>
 https://github.com/BeliveYourSelf/lv617DbTest<br>
 https://www.cnblogs.com/nami/p/4112339.html<br>
 https://www.csdn.net/tags/MtTaMg2sMTg1MTQ2LWJsb2cO0O0O.html
