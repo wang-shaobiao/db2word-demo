@@ -4,7 +4,7 @@ spring:
   datasource:
     #Connection Properties选项可见 https://github.com/pgjdbc/pgjdbc
     #https://jdbc.postgresql.org/documentation/head/connect.html#connection-parameters
-    url: jdbc:postgresql://localhost:5432/cif?currentSchema=cif&binaryTransfer=false&stringtype=unspecified&escapeSyntaxCallMode=callIfNoReturn&loggerLevel=DEBUG
+    url: jdbc:postgresql://10.50.3.17:5432/cif?currentSchema=cif&binaryTransfer=false&stringtype=unspecified&escapeSyntaxCallMode=callIfNoReturn&loggerLevel=DEBUG
     username: cif
     password: abs
     escapeSyntaxCallMode: callIfNoReturn

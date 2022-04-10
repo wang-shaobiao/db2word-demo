@@ -24,6 +24,7 @@ import com.wsb.db2wordpostgresql.service.DataTransferService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.system.ApplicationHome;
 import org.springframework.boot.system.SystemProperties;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -72,20 +73,22 @@ public class DataTransferServiceImpl implements DataTransferService {
         //宋体
         //PdfFont f = PdfFontFactory.createFont("STSongStd-Light", "UniGB-UCS2-H");
         //使用项目内上传的楷体
-        PdfFont f = PdfFontFactory.createFont("src/main/resources/simkai.ttf", PdfEncodings.IDENTITY_H);
+        //PdfFont f = PdfFontFactory.createFont("src/main/resources/simkai.ttf", PdfEncodings.IDENTITY_H);
+        PdfFont f = PdfFontFactory.createFont(new ClassPathResource("simkai.ttf").getPath(), PdfEncodings.IDENTITY_H);
         //设置文档标题
         Paragraph ph = new Paragraph("AMS数据库设计文档");
         ph.setFont(f).setFontSize(25);
         ph.setHorizontalAlignment(HorizontalAlignment.CENTER);
         document.add(ph);
         //简单添加图片，稍微再细一点的可以见水印图片的处理方式,路径或者字节流均可
-        Image im = new Image(ImageDataFactory.create("src/main/resources/test.jpg"),36,100);
+        //Image im = new Image(ImageDataFactory.create("src/main/resources/test.jpg"),36,100);
+        Image im = new Image(ImageDataFactory.create(new ClassPathResource("test.jpg").getURL()),36,100);
         im.scaleAbsolute(480, 500);
         document.add(im);
         //分页
         document.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
         //页眉
-        pdf.addEventHandler(PdfDocumentEvent.START_PAGE,new PdfHeaderMarker(f, "页眉"));
+        pdf.addEventHandler(PdfDocumentEvent.START_PAGE,new PdfHeaderMarker(f, "AMS项目内部使用"));
         //页码
         pdf.addEventHandler(PdfDocumentEvent.END_PAGE,new PdfPageMarker(f));
         //简单水印（水印图片/水印字）
@@ -126,28 +129,38 @@ public class DataTransferServiceImpl implements DataTransferService {
             String[] header ={"序号","字段名","类型","是否为空","主键","字段说明"};
             Cell cell;
             for (int k = 0; k < 6; k++) {
-                cell = new Cell().add(new Paragraph(header[i]).setFont(f)).setBackgroundColor(blue);
+                cell = new Cell().add(new Paragraph(header[k]).setFont(f)).setBackgroundColor(blue);
                 table.addHeaderCell(cell);
             }
             /*
              * 表格主体
              */
             for (int k = 0; k < list.size(); k++) {
+                table.addCell(new Cell().add(new Paragraph((k + 1) + "")));
                 String field = (String) list.get(k).get("field");
+                table.addCell(new Cell().add(new Paragraph(field + "")));
+                //table.addCell(field);
                 String type = (String) list.get(k).get("type");
+                table.addCell(new Cell().add(new Paragraph(type + "")));
+                //table.addCell(type);
                 String isnull = (String) list.get(k).get("null");
+                table.addCell(new Cell().add(new Paragraph(isnull + "")));
+                //table.addCell(isnull);
                 String key = (String) list.get(k).get("key");
+                table.addCell(new Cell().add(new Paragraph(key + "")));
+                //table.addCell(key);
                 String comment = (String)list.get(k).get("comment");
-                table.addCell((k + 1) + "");
-                table.addCell(field);
-                table.addCell(type);
-                table.addCell(isnull);
-                table.addCell(key);
-                table.addCell(comment);
+                table.addCell(new Cell().add(new Paragraph(comment + "").setFont(f))).setAutoLayout();
+                //table.addCell(comment);
+
+
+
+
+
             }
             Paragraph pheae = new Paragraph();
-            Text tx1 = new Text(" " + (i + 1) +". 表名：").setFontSize(18);
-            Text tx2 = new Text(table_name+" "+table_comment + "").setFontSize(16).setBold();
+            Text tx1 = new Text(" " + (i + 1) +". 表名：").setFont(f).setFontSize(18);
+            Text tx2 = new Text(table_name+" "+table_comment + "").setFont(f).setFontSize(16).setBold();
             pheae.add(tx1).add(tx2);
             //写入表说明,设置粗体
             document.add(pheae);
