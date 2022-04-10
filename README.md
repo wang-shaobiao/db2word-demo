@@ -23,14 +23,14 @@ itext-rtf<com.lowagie><br>
 * iText7：<br>
 
   * 方式1：单独依赖
-com.itextpdf:kernel:7.0.4
-com.itextpdf:io
-com.itextpdf:layout
-com.itextpdf:forms
-com.itextpdf:pdfa
-com.itextpdf:pdftest
+com.itextpdf:kernel:7.0.4 <br>
+com.itextpdf:io <br>
+com.itextpdf:layout <br>
+com.itextpdf:forms <br>
+com.itextpdf:pdfa <br>
+com.itextpdf:pdftest <br>
   * 方式2：全家桶
-com.itextpdf:itext7-core:7.0.4
+com.itextpdf:itext7-core:7.0.4 <br>
 
 [iText7应用生成pdf](https://github.com/wang-shaobiao/db2word-demo/tree/second)<br>
 
@@ -122,8 +122,8 @@ and relnamespace=(select oid from pg_namespace where nspname='cif' )
 表格 页码 页眉 水印 分页  插入图片...
 
 # References
-[官方API](https://api.itextpdf.com/iText7/java/7.2.0/)
-https://www.cnblogs.com/fonks/p/15090635.html
-https://ld246.com/article/1506562801846
-https://www.bbsmax.com/A/rV57P1NqdP/
-https://blog.csdn.net/weiruiwei/article/details/89084807
+[官方API](https://api.itextpdf.com/iText7/java/7.2.0/) <br>
+https://www.cnblogs.com/fonks/p/15090635.html <br>
+https://ld246.com/article/1506562801846 <br>
+https://www.bbsmax.com/A/rV57P1NqdP/ <br>
+https://blog.csdn.net/weiruiwei/article/details/89084807 <br>
