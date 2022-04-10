@@ -35,6 +35,19 @@ public class helloWorld {
             return "file有问题！";
         }
         return "生成pdf成功"+filePath;
-
     }
+    @RequestMapping("/1")
+    public String path() {
+        String path1 = this.getClass().getResource("").getPath();
+        System.out.println("path1:"+path1);
+        String path2 = this.getClass().getResource("").getPath();
+        System.out.println("path2:"+path2);
+        String path3 = this.getClass().getResource("/resources/application.yml").getPath();
+        System.out.println("path3:"+path3);
+        System.getProperty("user.dir");
+        return path3;
+        //return "path1:"+path1+";\r\n path2:"+path2;
+    }
+
+
 }
